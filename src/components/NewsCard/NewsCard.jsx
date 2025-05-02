@@ -12,7 +12,6 @@ const NewsCard = ({ news }) => {
         author,
         thumbnail_url,
         details,
-        tags,
     } = news;
     return (
         <div className="card shadow-xl ">
