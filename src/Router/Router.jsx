@@ -14,7 +14,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/category/:id",
+                loader: () => fetch("/news.json"),
                 element: <CategoryNews></CategoryNews>
+            },
+            {
+                path: "/about",
+                element: <div>I am about</div>
+            },
+            {
+                path: "/career",
+                element: <div>I am career</div>
             }
         ]
     },
@@ -26,13 +35,5 @@ const router = createBrowserRouter([
         path: "/news",
         element: <div>News Layout</div>
     },
-    {
-        path: "/about",
-        element: <div>I am about</div>
-    },
-    {
-        path: "/career",
-        element: <div>I am career</div>
-    }
 ]);
 export default router
