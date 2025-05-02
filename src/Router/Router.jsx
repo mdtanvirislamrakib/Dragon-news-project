@@ -14,6 +14,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/category/:id",
+                hydrateFallbackElement: <span className="loading loading-spinner text-error w-10 mx-auto flex items-center justify-center"></span>,
                 loader: () => fetch("/news.json"),
                 element: <CategoryNews></CategoryNews>
             },
