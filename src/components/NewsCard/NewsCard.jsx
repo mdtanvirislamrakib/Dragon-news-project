@@ -3,9 +3,11 @@ import { FaEye, FaStar } from "react-icons/fa";
 import { format } from "date-fns";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { CiBookmark } from "react-icons/ci";
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
     const {
+        id,
         title,
         rating,
         total_view,
@@ -46,7 +48,7 @@ const NewsCard = ({ news }) => {
                 <p className="text-sm text-gray-600 mt-3">
                     {details.length > 150 ? `${details.slice(0, 150)}...` : details}
                 </p>
-                <button className="text-primary mt-2">Read More</button>
+                <Link to={`/news-details/${id}`} className="text-secondary mt-2">Read More</Link>
             </div>
 
             <div className="flex items-center justify-between p-4 border-t text-sm text-gray-500">
