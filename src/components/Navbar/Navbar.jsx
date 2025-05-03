@@ -4,10 +4,10 @@ import userImage from "../../assets/user.png"
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = () => {
-    const {user} = use(AuthContext)
+    const {user} = use(AuthContext);
     return (
         <div className='flex justify-between items-center'>
-            <div>{user && <p>{user.name}</p>}</div>
+            <div>{user && <p>{user.email}</p>}</div>
             <div className='nav flex items-center gap-5 text-accent'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
