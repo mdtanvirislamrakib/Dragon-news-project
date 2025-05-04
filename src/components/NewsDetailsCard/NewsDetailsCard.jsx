@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const NewsDetailsCard = ({ news }) => {
-    console.log(news);
     const {
         title,
         details,

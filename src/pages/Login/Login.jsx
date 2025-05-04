@@ -1,9 +1,12 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState("");
     const {signIn} = use(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -16,12 +19,13 @@ const Login = () => {
             // Signed in 
             const user = userCredential.user;
             console.log(user);
+            navigate(`${location.state ? location.state : "/"}`)
             // ...
           })
           .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorCode, errorMessage)
+            if(error) {
+                setError("Invalid Email or Password")
+            }
           });
     }
     return (
@@ -37,6 +41,7 @@ const Login = () => {
                         
                         <button type='submit' className="btn btn-neutral mt-4">Login</button>
                     </form>
+                    {error && <p className='text-red-600 text-xs text-center'>{error}</p>}
                 </div>
                 <p className='text-center font-semibold'>Don't have and account? <Link to ="/auth/register" className='text-secondary'>Register</Link> </p>
             </div>
